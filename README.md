@@ -42,7 +42,7 @@ To use this API service, start the project with:
 python manage.py runserver
 ```
 
-And go to `http://127.0.0.1:8000/graphql/` in a web browser (I use Firefox. Alternatively, it is possible to use `Postman` to make the query as well, but this involves disabling `CSRF` protection in the `apps/graph_api/urls.py` file. 
+And go to `http://127.0.0.1:8000/graphql/` in a web browser (I use Firefox. Alternatively, it is possible to use `Postman` to make the query as well, but this involves disabling `CSRF` protection in the `apps/graph_api/urls.py` file. Please feel free to send me a message if you wish to use `Postman` to make queries and I can update this code.
 
 The following query can be used to obtain a `Person` object from the database.
 
