@@ -1,4 +1,4 @@
-# Django-Graphql
+# Django-GraphQL
 
 Todo:
 1. Secrets management
