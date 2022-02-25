@@ -1,5 +1,5 @@
-# Secrets
-env_secrets.py
+# Secrets - allow secrets to be stored in GitHub
+# env_secrets.py
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,django,vim,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,django,vim,visualstudiocode
@@ -10,7 +10,8 @@ env_secrets.py
 *.pyc
 __pycache__/
 local_settings.py
-db.sqlite3
+# Database - allow mock data to be stored in GitHub
+# db.sqlite3
 db.sqlite3-journal
 media
 
