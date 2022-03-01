@@ -1,4 +1,3 @@
-from graphene_django import DjangoObjectType
 import graphene 
 
 from apps.users.models import User 

@@ -17,7 +17,7 @@ class Address(models.Model):
         ('TAS', 'Tasmania'),
     ]
     state = models.CharField(
-        max_length=3, choices=STATE_CHOICES, default=STATE_CHOICES[0]
+        max_length=3, choices=STATE_CHOICES, default='NA'
     )
 
     def __str__(self):
