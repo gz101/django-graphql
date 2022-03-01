@@ -23,13 +23,5 @@ class Address(models.Model):
     def __str__(self):
         return f'{self.number} {self.street}, {self.city} {self.state}'
 
-
-class Person(models.Model):
-    email = models.EmailField()
-    name = models.CharField(max_length=55)
-    address = models.ForeignKey(
-        Address, on_delete=models.SET_NULL, null=True, related_name='address'
-    )
-
-    def __str__(self):
-        return f'{self.name}, {self.email}'
+    def valid_state(self, state):
+        return state in self.STATE_CHOICES

@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.graph_api',
+    'apps.api',
+    'apps.users',
+    'apps.addresses',
     'graphene_django',
 ]
 
@@ -128,7 +130,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+AUTH_USER_MODEL = 'users.User'
+
+
 # Graphene-django
 GRAPHENE = {
-    'SCHEMA': 'apps.graph_api.schema.schema'
+    'SCHEMA': 'apps.api.schema.schema'
 }
