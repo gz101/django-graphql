@@ -37,20 +37,33 @@ class UpdateAddress(graphene.Mutation):
     address = graphene.Field(AddressType)
 
     class Arguments:
+        id = graphene.Int()
         number = graphene.Int()
         street = graphene.String()
         city = graphene.String()
         state = graphene.String()
     
-    def mutate(self, info, id, number, street, city, state):
-        if not Address.valid_state(state):
-            raise GraphQLError('Invalid state. Must be in Australia.')
-        
-        a = Address.objects.get(id=id)
+    def mutate(self, info, id, number=None, street=None, city=None, 
+               state=None):
+        try:
+            a = Address.objects.get(id=id)
+        except Address.DoesNotExist:
+            raise GraphQLError('Address does not exist.')
 
-        a.number = number
-        a.street = street 
-        a.city = city 
-        a.state = state 
+        if number is not None:
+            a.number = number
+        
+        if street is not None:
+            a.street = street 
+        
+        if city is not None:
+            a.city = city 
+        
+        if state is not None:
+            if not Address.valid_state(state):
+                a.state = state
+            else:
+                raise GraphQLError('Invalid state chosen.') 
+        
         a.save()
         return UpdateAddress(address=a)

@@ -17,11 +17,14 @@ class Address(models.Model):
         ('TAS', 'Tasmania'),
     ]
     state = models.CharField(
-        max_length=3, choices=STATE_CHOICES, default='NA'
+        max_length=3, choices=STATE_CHOICES, default=STATE_CHOICES[0]
     )
 
     def __str__(self):
-        return f'{self.number} {self.street}, {self.city} {self.state}'
+        keys = [i[0] for i in self.STATE_CHOICES]
+        state_value = self.STATE_CHOICES[keys.index(self.state)][1]
+        return f'{self.number} {self.street}, {self.city} {state_value}'
 
-    def valid_state(self, state):
-        return state in self.STATE_CHOICES
+    @staticmethod
+    def valid_state(state):
+        return state in [i[0] for i in Address.STATE_CHOICES]
